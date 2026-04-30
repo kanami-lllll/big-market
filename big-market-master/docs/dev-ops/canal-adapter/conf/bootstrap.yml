@@ -1,0 +1,2 @@
+# Docker standalone mode does not use Canal Manager.
+# Canal Adapter reads sync configuration from application.yml and es7/*.yml.

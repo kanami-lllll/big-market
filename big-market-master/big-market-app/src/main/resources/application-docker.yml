@@ -1,0 +1,183 @@
+server:
+  port: ${SERVER_PORT:8098}
+  tomcat:
+    mbeanregistry:
+      enabled: true
+    max-connections: 200
+    threads:
+      max: 150
+      min-spare: 50
+    accept-count: 10
+
+app:
+  config:
+    api-version: ${APP_CONFIG_API_VERSION:v1}
+    cross-origin: ${APP_CONFIG_CROSS_ORIGIN:*}
+
+spring:
+  rabbitmq:
+    addresses: ${SPRING_RABBITMQ_ADDRESSES:rabbitmq}
+    port: ${SPRING_RABBITMQ_PORT:5672}
+    username: ${SPRING_RABBITMQ_USERNAME:admin}
+    password: ${SPRING_RABBITMQ_PASSWORD:admin}
+    listener:
+      simple:
+        prefetch: 1
+    topic:
+      activity_sku_stock_zero: ${SPRING_RABBITMQ_TOPIC_ACTIVITY_SKU_STOCK_ZERO:activity_sku_stock_zero}
+      send_award: ${SPRING_RABBITMQ_TOPIC_SEND_AWARD:send_award}
+      send_rebate: ${SPRING_RABBITMQ_TOPIC_SEND_REBATE:send_rebate}
+      credit_adjust_success: ${SPRING_RABBITMQ_TOPIC_CREDIT_ADJUST_SUCCESS:credit_adjust_success}
+  elasticsearch.datasource:
+    driverClassName: org.elasticsearch.xpack.sql.jdbc.EsDriver
+    url: ${SPRING_ELASTICSEARCH_DATASOURCE_URL:jdbc:es://http://elasticsearch:9200}
+  elasticsearch.rest:
+    url: ${SPRING_ELASTICSEARCH_REST_URL:http://elasticsearch:9200}
+  cloud:
+    zookeeper:
+      enabled: ${SPRING_CLOUD_ZOOKEEPER_ENABLED:false}
+
+thread:
+  pool:
+    executor:
+      config:
+        core-pool-size: 20
+        max-pool-size: 50
+        keep-alive-time: 5000
+        block-queue-size: 5000
+        policy: CallerRunsPolicy
+
+mini-db-router:
+  jdbc:
+    datasource:
+      dbCount: 2
+      tbCount: 4
+      default: db00
+      routerKey: userId
+      list: db01,db02
+      db00:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: ${DB00_URL:jdbc:mysql://mysql:3306/big_market?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true}
+        username: ${MYSQL_USER:root}
+        password: ${MYSQL_ROOT_PASSWORD:123456}
+        type-class-name: com.zaxxer.hikari.HikariDataSource
+        pool:
+          pool-name: Retail_HikariCP
+          minimum-idle: 15
+          idle-timeout: 180000
+          maximum-pool-size: 25
+          auto-commit: true
+          max-lifetime: 1800000
+          connection-timeout: 30000
+          connection-test-query: SELECT 1
+      db01:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: ${DB01_URL:jdbc:mysql://mysql:3306/big_market_01?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true}
+        username: ${MYSQL_USER:root}
+        password: ${MYSQL_ROOT_PASSWORD:123456}
+        type-class-name: com.zaxxer.hikari.HikariDataSource
+        pool:
+          pool-name: Retail_HikariCP
+          minimum-idle: 15
+          idle-timeout: 180000
+          maximum-pool-size: 25
+          auto-commit: true
+          max-lifetime: 1800000
+          connection-timeout: 30000
+          connection-test-query: SELECT 1
+      db02:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: ${DB02_URL:jdbc:mysql://mysql:3306/big_market_02?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true}
+        username: ${MYSQL_USER:root}
+        password: ${MYSQL_ROOT_PASSWORD:123456}
+        type-class-name: com.zaxxer.hikari.HikariDataSource
+        pool:
+          pool-name: Retail_HikariCP
+          minimum-idle: 15
+          idle-timeout: 180000
+          maximum-pool-size: 25
+          auto-commit: true
+          max-lifetime: 1800000
+          connection-timeout: 30000
+          connection-test-query: SELECT 1
+
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/mysql/*.xml
+  config-location: classpath:/mybatis/config/mybatis-config.xml
+
+redis:
+  sdk:
+    config:
+      host: ${REDIS_SDK_CONFIG_HOST:redis}
+      port: ${REDIS_SDK_CONFIG_PORT:6379}
+      pool-size: 10
+      min-idle-size: 5
+      idle-timeout: 30000
+      connect-timeout: 5000
+      retry-attempts: 3
+      retry-interval: 1000
+      ping-interval: 60000
+      keep-alive: true
+
+dubbo:
+  application:
+    name: big-market
+    version: 1.0
+  registry:
+    id: nacos-registry
+    address: ${DUBBO_REGISTRY_ADDRESS:nacos://nacos:8848}
+  protocol:
+    name: dubbo
+    port: -1
+  scan:
+    base-packages: cn.bugstack.trigger.api
+
+zookeeper:
+  sdk:
+    config:
+      enable: ${ZOOKEEPER_SDK_CONFIG_ENABLE:false}
+      connect-string: ${ZOOKEEPER_SDK_CONFIG_CONNECT_STRING:zookeeper:2181}
+      base-sleep-time-ms: 1000
+      max-retries: 3
+      session-timeout-ms: 18000
+      connection-timeout-ms: 30000
+
+xxl:
+  job:
+    accessToken: ${XXL_JOB_ACCESS_TOKEN:default_token}
+    admin:
+      addresses: ${XXL_JOB_ADMIN_ADDRESSES:http://xxl-job-admin:9090/xxl-job-admin}
+    executor:
+      address: "${XXL_JOB_EXECUTOR_ADDRESS:}"
+      appname: ${XXL_JOB_EXECUTOR_APPNAME:big-market-job}
+      ip: "${XXL_JOB_EXECUTOR_IP:}"
+      port: ${XXL_JOB_EXECUTOR_PORT:9999}
+      logpath: ${XXL_JOB_EXECUTOR_LOGPATH:./data/applogs/xxl-job/jobhandler}
+      logretentiondays: ${XXL_JOB_EXECUTOR_LOGRETENTIONDAYS:30}
+
+gateway:
+  config:
+    enable: ${GATEWAY_CONFIG_ENABLE:true}
+    apiHost: ${GATEWAY_CONFIG_API_HOST:http://chatgpt-data-app:8091}
+    big-market-appId: ${GATEWAY_CONFIG_BIG_MARKET_APP_ID:big-market}
+    big-market-appToken: ${GATEWAY_CONFIG_BIG_MARKET_APP_TOKEN:6ec604541f8b1ce4a}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  prometheus:
+    enabled: true
+
+logging:
+  level:
+    root: info
+  config: classpath:logback-spring.xml
