@@ -9,6 +9,7 @@ import cn.bugstack.domain.activity.service.IRaffleActivityStageService;
 import cn.bugstack.domain.activity.service.armory.IActivityArmory;
 import cn.bugstack.domain.auth.service.IAuthService;
 import cn.bugstack.domain.award.model.entity.UserAwardRecordEntity;
+import cn.bugstack.domain.award.model.entity.UserAwardRecordQueryEntity;
 import cn.bugstack.domain.award.model.valobj.AwardStateVO;
 import cn.bugstack.domain.award.service.IAwardService;
 import cn.bugstack.domain.credit.model.entity.CreditAccountEntity;
@@ -499,6 +500,44 @@ public class RaffleActivityController implements IRaffleActivityService {
         } catch (Exception e) {
             log.error("查询用户活动账户失败 userId:{} activityId:{}", request.getUserId(), request.getActivityId(), e);
             return Response.<UserActivityAccountResponseDTO>builder()
+                    .code(ResponseCode.UN_ERROR.getCode())
+                    .info(ResponseCode.UN_ERROR.getInfo())
+                    .build();
+        }
+    }
+
+    @RequestMapping(value = "query_user_award_record_list", method = RequestMethod.POST)
+    @Override
+    public Response<List<UserAwardRecordResponseDTO>> queryUserAwardRecordList(@RequestBody UserAwardRecordRequestDTO request) {
+        try {
+            if (null == request) {
+                throw new AppException(ResponseCode.ILLEGAL_PARAMETER.getCode(), ResponseCode.ILLEGAL_PARAMETER.getInfo());
+            }
+            log.info("查询用户中奖记录开始 userId:{} activityId:{}", request.getUserId(), request.getActivityId());
+            if (StringUtils.isBlank(request.getUserId()) || null == request.getActivityId()) {
+                throw new AppException(ResponseCode.ILLEGAL_PARAMETER.getCode(), ResponseCode.ILLEGAL_PARAMETER.getInfo());
+            }
+
+            List<UserAwardRecordQueryEntity> userAwardRecordEntities = awardService.queryUserAwardRecordList(request.getUserId(), request.getActivityId());
+            List<UserAwardRecordResponseDTO> responseDTOS = new ArrayList<>(userAwardRecordEntities.size());
+            for (UserAwardRecordQueryEntity userAwardRecordEntity : userAwardRecordEntities) {
+                responseDTOS.add(UserAwardRecordResponseDTO.builder()
+                        .orderId(userAwardRecordEntity.getOrderId())
+                        .awardId(userAwardRecordEntity.getAwardId())
+                        .awardTitle(userAwardRecordEntity.getAwardTitle())
+                        .awardTime(userAwardRecordEntity.getAwardTime())
+                        .awardState(userAwardRecordEntity.getAwardState())
+                        .build());
+            }
+
+            return Response.<List<UserAwardRecordResponseDTO>>builder()
+                    .code(ResponseCode.SUCCESS.getCode())
+                    .info(ResponseCode.SUCCESS.getInfo())
+                    .data(responseDTOS)
+                    .build();
+        } catch (Exception e) {
+            log.error("查询用户中奖记录失败 request:{}", JSON.toJSONString(request), e);
+            return Response.<List<UserAwardRecordResponseDTO>>builder()
                     .code(ResponseCode.UN_ERROR.getCode())
                     .info(ResponseCode.UN_ERROR.getInfo())
                     .build();

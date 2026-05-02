@@ -29,4 +29,15 @@
         where user_id = #{userId} and order_id = #{orderId} and award_state = 'create'
     </update>
 
+    <select id="queryUserAwardRecordList" parameterType="cn.bugstack.infrastructure.dao.po.UserAwardRecord" resultMap="dataMap">
+        select id, user_id, activity_id, strategy_id, order_id, award_id, award_title, award_time, award_state, create_time, update_time
+        from user_award_record
+        where user_id = #{userId}
+        <if test="activityId != null">
+            and activity_id = #{activityId}
+        </if>
+        order by award_time desc, id desc
+        limit 20
+    </select>
+
 </mapper>

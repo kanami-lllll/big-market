@@ -11,6 +11,7 @@ const StrategyArmoryButton = dynamic(async () => (await import("./components/Str
 const StrategyRuleWeightButton = dynamic(async () => (await import("./components/StrategyRuleWeight")).StrategyRuleWeight);
 const MemberCardButton = dynamic(async () => (await import("./components/MemberCard")).MemberCard);
 const SkuProductButton = dynamic(async () => (await import("./components/SkuProduct")).SkuProduct);
+const UserAwardRecords = dynamic(async () => (await import("./components/UserAwardRecords")).UserAwardRecords);
 
 export default function Home() {
     const [refresh, setRefresh] = useState(0);
@@ -34,6 +35,8 @@ export default function Home() {
             </header>
 
             <MemberCardButton allRefresh={refresh}/>
+
+            <UserAwardRecords refresh={refresh}/>
 
             <StrategyArmoryButton/>
 

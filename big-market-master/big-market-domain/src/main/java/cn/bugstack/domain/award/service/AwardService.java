@@ -5,6 +5,7 @@ import cn.bugstack.domain.award.model.aggregate.UserAwardRecordAggregate;
 import cn.bugstack.domain.award.model.entity.DistributeAwardEntity;
 import cn.bugstack.domain.award.model.entity.TaskEntity;
 import cn.bugstack.domain.award.model.entity.UserAwardRecordEntity;
+import cn.bugstack.domain.award.model.entity.UserAwardRecordQueryEntity;
 import cn.bugstack.domain.award.model.valobj.TaskStateVO;
 import cn.bugstack.domain.award.adapter.repository.IAwardRepository;
 import cn.bugstack.domain.award.service.distribute.IDistributeAward;
@@ -12,6 +13,7 @@ import cn.bugstack.types.event.BaseEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -63,6 +65,11 @@ public class AwardService implements IAwardService {
         awardRepository.saveUserAwardRecord(userAwardRecordAggregate);
 
         log.info("中奖记录保存完成 userId:{} orderId:{}", userAwardRecordEntity.getUserId(), userAwardRecordEntity.getOrderId());
+    }
+
+    @Override
+    public List<UserAwardRecordQueryEntity> queryUserAwardRecordList(String userId, Long activityId) {
+        return awardRepository.queryUserAwardRecordList(userId, activityId);
     }
 
     @Override

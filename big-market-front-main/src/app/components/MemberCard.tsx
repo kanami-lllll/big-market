@@ -1,7 +1,7 @@
 import {calendarSignRebate, isCalendarSignRebate, queryUserActivityAccount, queryUserCreditAccount} from "@/apis";
 import React, {useEffect, useState} from "react";
 import {UserActivityAccountVO} from "@/types/UserActivityAccountVO";
-import {getDemoParams, getDemoUserId} from "@/utils/demoParams";
+import {getDemoParams, getDemoUserId, resetDemoUserId} from "@/utils/demoParams";
 
 // @ts-ignore
 export function MemberCard({allRefresh}) {
@@ -21,6 +21,11 @@ export function MemberCard({allRefresh}) {
         setRefresh(refresh + 1)
     };
 
+    const switchGuestUser = () => {
+        resetDemoUserId();
+        window.location.reload();
+    };
+
     // 获取当前日期
     const currentDate = new Date();
     // 格式化日期为 YYYY年MM月DD日
@@ -35,7 +40,7 @@ export function MemberCard({allRefresh}) {
         const {code, info, data}: { code: string; info: string; data: UserActivityAccountVO } = await result.json();
 
         if (code != "0000") {
-            window.alert("查询活动账户额度，接口调用失败 code:" + code + " info:" + info)
+            setDayCount(0);
             return;
         }
 
@@ -48,7 +53,7 @@ export function MemberCard({allRefresh}) {
         const {code, info, data}: { code: string; info: string; data: number } = await result.json();
 
         if (code != "0000") {
-            window.alert("查询活动账户额度，接口调用失败 code:" + code + " info:" + info)
+            setCreditAmount(0);
             return;
         }
 
@@ -153,6 +158,10 @@ export function MemberCard({allRefresh}) {
                     className="absolute top-4 right-4 bg-white bg-opacity-20 text-white font-bold py-1 px-3 rounded-full shadow-md">
                     id: {userId}
                 </div>
+                <button onClick={switchGuestUser} style={{cursor: "pointer"}}
+                        className="absolute top-14 right-4 bg-white bg-opacity-20 text-white font-bold py-1 px-3 rounded-full shadow-md transition duration-300 ease-in-out hover:bg-opacity-30">
+                    切换访客
+                </button>
             </div>
 
         </>

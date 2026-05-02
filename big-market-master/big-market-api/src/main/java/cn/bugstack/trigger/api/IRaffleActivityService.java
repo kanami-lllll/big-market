@@ -96,6 +96,14 @@ public interface IRaffleActivityService {
     Response<UserActivityAccountResponseDTO> queryUserActivityAccount(UserActivityAccountRequestDTO request);
 
     /**
+     * 查询用户中奖记录。
+     *
+     * @param request 请求对象
+     * @return 用户中奖记录列表
+     */
+    Response<List<UserAwardRecordResponseDTO>> queryUserAwardRecordList(UserAwardRecordRequestDTO request);
+
+    /**
      * 查询sku商品集合
      *
      * @param activityId 活动ID

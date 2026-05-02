@@ -4,6 +4,7 @@ import cn.bugstack.domain.award.model.aggregate.GiveOutPrizesAggregate;
 import cn.bugstack.domain.award.model.aggregate.UserAwardRecordAggregate;
 import cn.bugstack.domain.award.model.entity.TaskEntity;
 import cn.bugstack.domain.award.model.entity.UserAwardRecordEntity;
+import cn.bugstack.domain.award.model.entity.UserAwardRecordQueryEntity;
 import cn.bugstack.domain.award.model.entity.UserCreditAwardEntity;
 import cn.bugstack.domain.award.model.valobj.AccountStatusVO;
 import cn.bugstack.domain.award.adapter.repository.IAwardRepository;
@@ -26,6 +27,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -123,6 +126,34 @@ public class AwardRepository implements IAwardRepository {
             taskDao.updateTaskSendMessageFail(task);
         }
 
+    }
+
+    @Override
+    public List<UserAwardRecordQueryEntity> queryUserAwardRecordList(String userId, Long activityId) {
+        UserAwardRecord userAwardRecordReq = new UserAwardRecord();
+        userAwardRecordReq.setUserId(userId);
+        userAwardRecordReq.setActivityId(activityId);
+
+        try {
+            dbRouter.doRouter(userId);
+            List<UserAwardRecord> userAwardRecords = userAwardRecordDao.queryUserAwardRecordList(userAwardRecordReq);
+            List<UserAwardRecordQueryEntity> userAwardRecordEntities = new ArrayList<>(userAwardRecords.size());
+            for (UserAwardRecord userAwardRecord : userAwardRecords) {
+                userAwardRecordEntities.add(UserAwardRecordQueryEntity.builder()
+                        .userId(userAwardRecord.getUserId())
+                        .activityId(userAwardRecord.getActivityId())
+                        .strategyId(userAwardRecord.getStrategyId())
+                        .orderId(userAwardRecord.getOrderId())
+                        .awardId(userAwardRecord.getAwardId())
+                        .awardTitle(userAwardRecord.getAwardTitle())
+                        .awardTime(userAwardRecord.getAwardTime())
+                        .awardState(userAwardRecord.getAwardState())
+                        .build());
+            }
+            return userAwardRecordEntities;
+        } finally {
+            dbRouter.clear();
+        }
     }
 
     @Override

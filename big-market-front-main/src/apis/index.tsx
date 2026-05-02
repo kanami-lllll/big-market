@@ -92,6 +92,27 @@ export const queryUserActivityAccount = (userId?: string, activityId?: number) =
     }
 }
 
+export const queryUserAwardRecordList = (userId?: string, activityId?: number) => {
+    try {
+        return fetch(`${apiHostUrl}/api/v1/raffle/activity/query_user_award_record_list`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                userId: userId,
+                activityId: activityId
+            })
+        })
+    } catch (error) {
+        return fetch("{\n" +
+            "    \"code\": \"0001\",\n" +
+            "    \"info\": \"调用失败\",\n" +
+            "    \"data\": [\n" +
+            "}");
+    }
+}
+
 /**
  * 日历签到返利接口
  * @param userId
@@ -214,5 +235,4 @@ export const creditPayExchangeSku = (userId?: string, sku?: number) => {
             "}");
     }
 }
-
 
