@@ -11,11 +11,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 工厂
- * @create 2024-01-20 10:54
- */
 @Service
 public class DefaultChainFactory {
     // 原型模式获取对象

@@ -8,11 +8,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖活动上架服务
- * @create 2024-10-26 17:52
- */
 @Service
 public class RaffleActivityStageService implements IRaffleActivityStageService {
 

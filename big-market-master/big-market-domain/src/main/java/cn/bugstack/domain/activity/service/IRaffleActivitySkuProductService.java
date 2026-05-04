@@ -4,11 +4,6 @@ import cn.bugstack.domain.activity.model.entity.SkuProductEntity;
 
 import java.util.List;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description sku商品服务接口
- * @create 2024-06-15 09:14
- */
 public interface IRaffleActivitySkuProductService {
 
     /**

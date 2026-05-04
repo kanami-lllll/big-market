@@ -10,11 +10,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description OpenAI 账户调额奖品
- * @create 2024-10-06 11:18
- */
 @Component("openai_use_count")
 public class OpenAIAccountAdjustQuotaAward implements IDistributeAward {
 

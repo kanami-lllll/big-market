@@ -27,11 +27,6 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖策略测试
- * @create 2024-01-06 13:28
- */
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest

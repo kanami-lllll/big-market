@@ -2,11 +2,6 @@ package cn.bugstack.domain.strategy.service;
 
 import cn.bugstack.domain.strategy.model.valobj.StrategyAwardStockKeyVO;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖库存相关服务，获取库存消耗队列
- * @create 2024-02-09 12:17
- */
 public interface IRaffleStock {
 
     /**

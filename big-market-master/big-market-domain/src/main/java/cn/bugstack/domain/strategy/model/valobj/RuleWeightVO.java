@@ -11,11 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 权重规则值对象
- * @create 2024-05-03 09:53
- */
 @Getter
 @Builder
 @AllArgsConstructor

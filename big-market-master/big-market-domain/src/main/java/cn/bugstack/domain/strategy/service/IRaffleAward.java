@@ -5,11 +5,6 @@ import cn.bugstack.domain.strategy.model.valobj.StrategyAwardStockKeyVO;
 
 import java.util.List;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 策略奖品接口
- * @create 2024-02-14 16:44
- */
 public interface IRaffleAward {
 
     /**

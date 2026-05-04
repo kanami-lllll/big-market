@@ -22,11 +22,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 监听；行为返利消息
- * @create 2024-05-01 13:58
- */
 @Slf4j
 @Component
 public class RebateMessageCustomer {

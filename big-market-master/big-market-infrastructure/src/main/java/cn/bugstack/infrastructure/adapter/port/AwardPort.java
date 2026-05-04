@@ -15,11 +15,6 @@ import retrofit2.Call;
 
 import javax.annotation.Resource;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description
- * @create 2024-10-06 11:46
- */
 @Slf4j
 @Service
 public class AwardPort implements IAwardPort {

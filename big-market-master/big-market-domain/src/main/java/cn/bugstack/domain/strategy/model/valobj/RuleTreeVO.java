@@ -7,11 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.Map;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 规则树对象【注意；不具有唯一ID，不需要改变数据库结果的对象，可以被定义为值对象】
- * @create 2024-01-27 10:45
- */
 @Data
 @Builder
 @AllArgsConstructor

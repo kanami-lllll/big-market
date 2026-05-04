@@ -5,11 +5,6 @@ import lombok.*;
 
 import java.io.Serializable;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 返利请求对象
- * @create 2024-10-20 13:39
- */
 @Data
 @Builder
 @AllArgsConstructor

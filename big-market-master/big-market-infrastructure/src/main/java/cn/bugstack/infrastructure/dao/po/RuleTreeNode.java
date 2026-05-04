@@ -4,11 +4,6 @@ import lombok.Data;
 
 import java.util.Date;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 规则树节点
- * @create 2024-02-03 10:29
- */
 @Data
 public class RuleTreeNode {
 

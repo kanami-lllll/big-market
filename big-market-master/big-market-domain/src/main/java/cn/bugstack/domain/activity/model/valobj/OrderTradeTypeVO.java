@@ -3,11 +3,6 @@ package cn.bugstack.domain.activity.model.valobj;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 订单交易类型
- * @create 2024-06-08 18:27
- */
 @Getter
 @AllArgsConstructor
 public enum OrderTradeTypeVO {

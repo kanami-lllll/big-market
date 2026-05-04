@@ -5,7 +5,7 @@ export function StrategyArmory() {
     const strategyArmoryHandle = async () => {
         const activityId = getDemoActivityId();
         if (!activityId){
-            window.alert("请在请求地址中，配置 activityId 值，如：http://big-market.gaga.plus/?userId=xiaofuge&activityId=100301")
+            window.alert("请在请求地址中，配置 activityId 值，如：http://big-market.gaga.plus/?userId=郑岳桓&activityId=100301")
             return;
         }
         const res = await activityStrategyArmory(activityId);

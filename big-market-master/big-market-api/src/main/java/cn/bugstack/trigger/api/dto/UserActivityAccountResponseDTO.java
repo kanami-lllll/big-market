@@ -7,11 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 用户活动账户应答对象
- * @create 2024-05-03 07:18
- */
 @Data
 @Builder
 @AllArgsConstructor

@@ -14,11 +14,6 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 规则树测试
- * @create 2024-01-27 13:23
- */
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest

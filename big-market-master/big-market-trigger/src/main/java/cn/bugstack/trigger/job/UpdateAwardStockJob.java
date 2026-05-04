@@ -17,11 +17,6 @@ import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 更新奖品库存任务；为了不让更新库存的压力打到数据库中，这里采用了redis更新缓存库存，异步队列更新数据库，数据库表最终一致即可。
- * @create 2024-02-09 12:13
- */
 @Slf4j
 @Component()
 public class UpdateAwardStockJob {

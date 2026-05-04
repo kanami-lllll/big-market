@@ -20,11 +20,6 @@ import java.math.BigDecimal;
 import java.security.SecureRandom;
 import java.util.*;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 策略装配库(兵工厂)，负责初始化策略计算
- * @create 2023-12-23 10:02
- */
 @Slf4j
 @Service("strategyArmoryDispatch")
 public class StrategyArmoryDispatch extends AbstractStrategyAlgorithm {

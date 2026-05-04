@@ -15,11 +15,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 权限认证
- * @create 2024-10-07 17:54
- */
 @Slf4j
 public abstract class AbstractAuthService implements IAuthService {
 

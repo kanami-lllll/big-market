@@ -17,11 +17,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 积分调额服务【正逆向，增减积分】
- * @create 2024-06-01 09:36
- */
 @Slf4j
 @Service
 public class CreditAdjustService implements ICreditAdjustService {

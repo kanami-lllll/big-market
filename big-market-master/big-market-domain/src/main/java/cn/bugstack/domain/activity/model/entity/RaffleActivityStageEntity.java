@@ -5,11 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 活动上架实体对象
- * @create 2024-10-26 18:31
- */
 @Data
 @Builder
 @AllArgsConstructor

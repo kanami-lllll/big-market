@@ -14,11 +14,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Date;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖策略抽象类，定义抽奖的标准流程
- * @create 2024-01-06 09:26
- */
 @Slf4j
 public abstract class AbstractRaffleStrategy implements IRaffleStrategy {
 

@@ -26,11 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 营销抽奖服务
- * @create 2024-02-14 09:21
- */
 @Slf4j
 @RestController()
 @CrossOrigin("${app.config.cross-origin}")

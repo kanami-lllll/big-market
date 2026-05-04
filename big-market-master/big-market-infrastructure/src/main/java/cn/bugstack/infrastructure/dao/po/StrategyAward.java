@@ -5,11 +5,6 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.util.Date;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖策略奖品明细配置 - 概率、规则
- * @create 2023-12-16 13:14
- */
 @Data
 public class StrategyAward {
 

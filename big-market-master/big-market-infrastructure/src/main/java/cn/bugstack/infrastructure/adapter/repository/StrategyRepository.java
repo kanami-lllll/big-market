@@ -22,11 +22,6 @@ import java.util.concurrent.TimeUnit;
 
 import static cn.bugstack.types.enums.ResponseCode.UN_ASSEMBLED_STRATEGY_ARMORY;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 策略服务仓储实现
- * @create 2023-12-23 10:33
- */
 @Slf4j
 @Repository
 public class StrategyRepository implements IStrategyRepository {

@@ -18,11 +18,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖活动服务测试
- * @create 2024-04-20 11:02
- */
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest

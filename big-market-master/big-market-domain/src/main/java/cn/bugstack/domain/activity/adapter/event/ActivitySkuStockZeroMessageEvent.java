@@ -8,11 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 活动sku库存清空消息
- * @create 2024-03-30 12:43
- */
 @Component
 public class ActivitySkuStockZeroMessageEvent extends BaseEvent<Long> {
 

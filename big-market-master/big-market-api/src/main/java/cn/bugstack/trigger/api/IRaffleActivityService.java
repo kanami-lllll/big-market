@@ -6,11 +6,6 @@ import cn.bugstack.trigger.api.response.Response;
 import java.math.BigDecimal;
 import java.util.List;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖活动服务
- * @create 2024-04-13 09:16
- */
 public interface IRaffleActivityService {
 
     /**

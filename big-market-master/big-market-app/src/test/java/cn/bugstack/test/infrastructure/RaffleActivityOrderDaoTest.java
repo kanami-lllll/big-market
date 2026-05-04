@@ -15,11 +15,6 @@ import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖活动订单测试
- * @create 2024-03-09 10:51
- */
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest

@@ -14,11 +14,6 @@ import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.concurrent.CountDownLatch;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 积分额度增加服务测试
- * @create 2024-06-01 10:22
- */
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest

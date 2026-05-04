@@ -7,11 +7,6 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 消息发送
- * @create 2024-03-30 12:40
- */
 @Slf4j
 @Component
 public class EventPublisher {

@@ -5,11 +5,6 @@ import cn.bugstack.domain.strategy.model.valobj.RuleWeightVO;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖规则接口；提供对规则的业务功能查询
- * @create 2024-04-20 09:17
- */
 public interface IRaffleRule {
 
     /**

@@ -11,11 +11,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 用户奖品记录事件消息
- * @create 2024-04-06 09:43
- */
 @Component
 public class SendAwardMessageEvent extends BaseEvent<SendAwardMessageEvent.SendAwardMessage> {
 

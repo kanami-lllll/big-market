@@ -12,11 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.nio.charset.StandardCharsets;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 动态配置管理
- * @create 2024-07-13 08:57
- */
 @Slf4j
 @RestController()
 @CrossOrigin("${app.config.cross-origin}")

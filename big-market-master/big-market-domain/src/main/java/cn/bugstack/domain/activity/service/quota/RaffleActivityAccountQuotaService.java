@@ -14,11 +14,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖活动服务
- * @create 2024-03-16 08:41
- */
 @Service
 public class RaffleActivityAccountQuotaService extends AbstractRaffleActivityAccountQuota implements IRaffleActivitySkuStockService {
 

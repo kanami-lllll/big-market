@@ -13,11 +13,6 @@ import java.util.concurrent.CompletionException;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.stream.Collectors;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 循环、二分、多线程，查找抽奖算法
- * @create 2024-08-24 10:47
- */
 @Slf4j
 @Component("oLogNAlgorithm")
 public class OLogNAlgorithm extends AbstractAlgorithm {

@@ -4,11 +4,6 @@ import lombok.Data;
 
 import java.util.Date;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 日常行为返利活动配置 持久化对象
- * @create 2024-04-30 13:38
- */
 @Data
 public class DailyBehaviorRebate {
 

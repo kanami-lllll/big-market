@@ -5,11 +5,6 @@ import cn.bugstack.trigger.api.response.Response;
 
 import java.util.List;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖服务接口
- * @create 2024-02-14 09:33
- */
 public interface IRaffleStrategyService {
 
     /**

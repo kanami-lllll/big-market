@@ -14,11 +14,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.*;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 权重抽奖责任链
- * @create 2024-01-20 10:38
- */
 @Slf4j
 @Component("rule_weight")
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)

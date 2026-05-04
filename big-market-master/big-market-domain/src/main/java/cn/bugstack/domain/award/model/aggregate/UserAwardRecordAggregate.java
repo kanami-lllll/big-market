@@ -7,11 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 用户中奖记录聚合对象 【聚合代表一个事务操作】
- * @create 2024-04-06 09:40
- */
 @Data
 @Builder
 @AllArgsConstructor

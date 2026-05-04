@@ -18,11 +18,6 @@ import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 返利服务
- * @create 2024-10-20 13:44
- */
 @Slf4j
 @DubboService(version = "1.0")
 public class RebateServiceRPC implements IRebateService {

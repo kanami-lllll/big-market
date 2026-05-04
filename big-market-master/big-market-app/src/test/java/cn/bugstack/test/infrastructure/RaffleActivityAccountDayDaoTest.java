@@ -10,11 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 活动日账户DAO
- * @create 2024-04-20 10:15
- */
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest

@@ -7,11 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖因子实体
- * @create 2024-01-06 09:20
- */
 @Data
 @Builder
 @AllArgsConstructor

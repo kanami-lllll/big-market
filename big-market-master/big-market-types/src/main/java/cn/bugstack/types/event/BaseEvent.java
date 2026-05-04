@@ -7,11 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 基础时间
- * @create 2024-03-30 12:42
- */
 @Data
 public abstract class BaseEvent<T> {
 

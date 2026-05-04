@@ -3,11 +3,6 @@ package cn.bugstack.domain.strategy.model.valobj;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 规则限定枚举值
- * @create 2024-01-27 12:27
- */
 @Getter
 @AllArgsConstructor
 public enum RuleLimitTypeVO {

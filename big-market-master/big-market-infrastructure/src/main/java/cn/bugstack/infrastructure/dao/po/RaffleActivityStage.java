@@ -4,11 +4,6 @@ import lombok.Data;
 
 import java.sql.Date;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 活动展台 - 上架活动
- * @create 2024-10-26 17:06
- */
 @Data
 public class RaffleActivityStage {
 

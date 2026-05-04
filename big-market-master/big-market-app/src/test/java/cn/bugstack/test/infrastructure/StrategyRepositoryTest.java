@@ -18,11 +18,6 @@ import javax.annotation.Resource;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 策略仓储测试
- * @create 2024-02-03 09:43
- */
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest

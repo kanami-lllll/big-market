@@ -7,11 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 账户额度下单聚合对象
- * @create 2024-03-16 10:32
- */
 @Data
 @Builder
 @AllArgsConstructor

@@ -12,11 +12,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 策略服务仓储接口
- * @create 2023-12-23 09:33
- */
 public interface IStrategyRepository {
 
     List<StrategyAwardEntity> queryStrategyAwardList(Long strategyId);

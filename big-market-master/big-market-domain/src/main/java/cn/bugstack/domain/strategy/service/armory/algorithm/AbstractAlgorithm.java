@@ -11,11 +11,6 @@ import java.math.BigDecimal;
 import java.security.SecureRandom;
 import java.util.List;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖算法抽象类
- * @create 2024-08-24 13:04
- */
 public abstract class AbstractAlgorithm implements IAlgorithm {
 
     @Resource

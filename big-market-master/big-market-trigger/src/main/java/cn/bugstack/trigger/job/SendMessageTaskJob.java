@@ -16,11 +16,6 @@ import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 发送MQ消息任务队列
- * @create 2024-04-06 10:47
- */
 @Slf4j
 @Component()
 public class SendMessageTaskJob {

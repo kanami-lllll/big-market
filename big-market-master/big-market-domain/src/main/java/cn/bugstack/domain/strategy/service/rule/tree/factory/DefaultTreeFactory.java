@@ -10,11 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 规则树工厂
- * @create 2024-01-27 11:28
- */
 @Service
 public class DefaultTreeFactory {
 

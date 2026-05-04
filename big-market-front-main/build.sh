@@ -1,1 +1,1 @@
-docker build -t fuzhengwei/big-market-front-app:4.1 .
+docker build -t zhengyuehuan/big-market-front-app:4.1 .

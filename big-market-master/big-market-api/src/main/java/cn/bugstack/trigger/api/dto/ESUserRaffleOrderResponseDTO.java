@@ -4,11 +4,6 @@ import lombok.Data;
 
 import java.util.Date;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 用户抽奖订单DTO数据
- * @create 2024-09-21 12:26
- */
 @Data
 public class ESUserRaffleOrderResponseDTO {
 

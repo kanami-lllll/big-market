@@ -7,11 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 策略实体
- * @create 2023-12-31 15:24
- */
 @Data
 @Builder
 @AllArgsConstructor

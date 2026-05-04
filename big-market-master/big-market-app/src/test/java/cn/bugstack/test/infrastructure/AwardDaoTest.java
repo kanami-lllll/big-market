@@ -12,11 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.annotation.Resource;
 import java.util.List;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 奖品持久化单元测试
- * @create 2023-12-16 13:36
- */
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest

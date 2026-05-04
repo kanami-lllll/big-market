@@ -16,11 +16,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import java.math.BigDecimal;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 交易聚合对象
- * @create 2024-06-01 09:48
- */
 @Data
 @Builder
 @AllArgsConstructor

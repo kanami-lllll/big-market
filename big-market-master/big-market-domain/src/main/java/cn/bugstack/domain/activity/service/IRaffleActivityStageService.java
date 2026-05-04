@@ -4,11 +4,6 @@ import cn.bugstack.domain.activity.model.entity.RaffleActivityStageEntity;
 
 import java.util.List;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖活动上架服务接口
- * @create 2024-10-26 17:37
- */
 public interface IRaffleActivityStageService {
 
     /**

@@ -11,11 +11,6 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.*;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description o(1) 时间复杂度算法，将抽奖概率分配到 Redis Map 结构中，1个概率对应的奖品就是一个Key，抽奖时直接通过 get 获取。
- * @create 2024-08-24 10:31
- */
 @Slf4j
 @Component("o1Algorithm")
 public class O1Algorithm extends AbstractAlgorithm {

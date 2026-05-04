@@ -31,11 +31,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 活动仓储服务
- * @create 2024-03-16 11:03
- */
 @Slf4j
 @Repository
 public class ActivityRepository implements IActivityRepository {

@@ -2,11 +2,6 @@ package cn.bugstack.domain.activity.service;
 
 import cn.bugstack.domain.activity.model.entity.*;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖活动账户额度服务
- * @create 2024-03-16 08:38
- */
 public interface IRaffleActivityAccountQuotaService {
 
     /**

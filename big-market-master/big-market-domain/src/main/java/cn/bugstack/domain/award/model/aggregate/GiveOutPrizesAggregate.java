@@ -10,11 +10,6 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 发放奖品聚合对象
- * @create 2024-05-18 09:26
- */
 @Data
 @Builder
 @AllArgsConstructor

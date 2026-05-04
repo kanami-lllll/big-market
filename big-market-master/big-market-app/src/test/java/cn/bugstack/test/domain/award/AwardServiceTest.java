@@ -15,11 +15,6 @@ import javax.annotation.Resource;
 import java.util.Date;
 import java.util.concurrent.CountDownLatch;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 奖品服务测试
- * @create 2024-04-06 11:27
- */
 @Slf4j
 @RunWith(SpringRunner.class)
 @SpringBootTest

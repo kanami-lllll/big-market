@@ -7,11 +7,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 消息任务服务
- * @create 2024-04-06 10:54
- */
 @Service
 public class TaskService implements ITaskService {
 

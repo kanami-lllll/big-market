@@ -1,6 +1,6 @@
 # Big Market 大营销系统
 
-Big Market 是一个包含用户前台、ERP 管理端、Java 后端和完整中间件栈的营销活动系统。当前仓库已经整理为 Docker Compose 全量一键启动方案，适合作为学习项目、部署演示项目和简历项目使用。
+Big Market 是一个包含用户前台、ERP 管理端、Java 后端和完整中间件栈的营销活动系统。当前仓库已经整理为 Docker Compose 全量一键启动方案。
 
 ## 项目组成
 
@@ -388,13 +388,153 @@ Windows 挂载配置文件时可能出现权限为 777，MySQL 会忽略该配�
 | Prometheus / Grafana | 通过 |
 
 
+## 4C4G 服务器 Lite 版 Docker 部署
 
-## 后续可优化方向
+Lite 版用于 4 核 4G 云服务器，只保留用户前台和核心抽奖链路，舍弃 ERP、Elasticsearch、Canal、Kibana、Prometheus、Grafana、phpMyAdmin、redis-admin 等较重服务。
 
-| 优化项 | 价值 |
+### Lite 版保留服务
+
+| 服务 | 作用 |
 | --- | --- |
-| 增加业务接口 smoke test 脚本 | 一键验证抽奖、活动、ERP 接口是否可用 |
-| 给 Canal Adapter 增加明确 healthcheck | 让同步链路状态更可观测 |
-| 增加 Makefile 或 PowerShell 脚本 | 把启动、停止、重建、验收命令进一步封装 |
-| 增加 Grafana Dashboard | 展示 JVM、接口、MySQL、Redis 等监控指标 |
-| 云服务器部署说明 | 支持简历演示环境公网访问 |
+| `front` | 用户前台页面 |
+| `backend` | Java 后端核心业务 |
+| `mysql` | 业务数据、订单、奖品、库存、积分 |
+| `redis` | 抽奖策略缓存、库存扣减、防超卖 |
+| `rabbitmq` | 异步发奖、积分兑换、任务消息 |
+| `nacos` | Dubbo 注册中心 |
+| `xxl-job-admin` | 定时任务与补偿任务 |
+
+### Lite 版不启动服务
+
+| 服务 | 不启动原因 | 影响 |
+| --- | --- | --- |
+| `erp` | 管理端前端，不属于核心抽奖链路 | 不能访问 ERP 后台 |
+| `elasticsearch` | 内存占用较高，主要服务 ERP 查询 | ERP 抽奖订单查询不可用 |
+| `canal-server` / `canal-adapter` | 用于 MySQL 同步 Elasticsearch | ES 数据同步不可用 |
+| `kibana` | Elasticsearch 可视化工具 | 不影响前台抽奖 |
+| `prometheus` / `grafana` | 监控看板 | 不影响核心业务 |
+| `phpmyadmin` / `redis-admin` | 数据库和 Redis Web 管理工具 | 不影响核心业务 |
+| `zookeeper` | Docker 版默认使用 Nacos，不启用 Zookeeper | 不影响默认链路 |
+
+### 1. 准备环境变量
+
+复制 Lite 版环境变量模板：
+
+```bash
+cp .env.lite.example .env.lite
+```
+
+修改 `.env.lite`：
+
+```env
+PUBLIC_API_HOST_URL=http://服务器公网IP:8098
+MYSQL_ROOT_PASSWORD=替换成你的MySQL强密码
+RABBITMQ_DEFAULT_USER=admin
+RABBITMQ_DEFAULT_PASS=替换成你的RabbitMQ强密码
+BACKEND_PORT=8098
+FRONT_PORT=3000
+```
+
+本机测试时可以使用：
+
+```env
+PUBLIC_API_HOST_URL=http://localhost:8098
+```
+
+云服务器部署时必须改成浏览器可以访问的公网地址，例如：
+
+```env
+PUBLIC_API_HOST_URL=http://123.123.123.123:8098
+```
+
+### 2. 启动 Lite 版
+
+```bash
+docker compose --env-file .env.lite -p big-market-lite -f docker-compose.lite.yml up -d --build
+```
+
+参数说明：
+
+| 参数 | 作用 |
+| --- | --- |
+| `--env-file .env.lite` | 指定 Lite 版环境变量文件 |
+| `-p big-market-lite` | 指定 Compose 项目名，避免和 full 版容器混淆 |
+| `-f docker-compose.lite.yml` | 使用 Lite 版编排文件 |
+| `up -d --build` | 后台启动，并在代码变化后重新构建镜像 |
+
+### 3. 查看启动状态
+
+```bash
+docker compose --env-file .env.lite -p big-market-lite -f docker-compose.lite.yml ps
+```
+
+正常情况下，以下服务应为 `healthy`：
+
+```text
+big-market-lite-mysql
+big-market-lite-redis
+big-market-lite-rabbitmq
+big-market-lite-nacos
+big-market-lite-xxl-job-admin
+big-market-lite-backend
+big-market-lite-front
+```
+
+### 4. 访问地址
+
+本机测试：
+
+| 页面 / 服务 | 地址 |
+| --- | --- |
+| 用户前台 | `http://localhost:3000` |
+| Java 后端 | `http://localhost:8098` |
+| 后端健康检查 | `http://localhost:8098/actuator/health` |
+
+云服务器部署：
+
+| 页面 / 服务 | 地址 |
+| --- | --- |
+| 用户前台 | `http://服务器公网IP:3000` |
+| Java 后端 | `http://服务器公网IP:8098` |
+| 后端健康检查 | `http://服务器公网IP:8098/actuator/health` |
+
+云服务器安全组至少需要放行：
+
+| 端口 | 用途 |
+| --- | --- |
+| `3000` | 用户前台 |
+| `8098` | Java 后端 API |
+
+MySQL、Redis、RabbitMQ、Nacos、XXL-Job 在 Lite 版中默认不暴露公网端口，只在 Docker 内部网络访问。
+
+### 5. 停止 Lite 版
+
+停止容器但保留数据卷：
+
+```bash
+docker compose --env-file .env.lite -p big-market-lite -f docker-compose.lite.yml down
+```
+
+如果需要连数据卷一起删除，谨慎执行：
+
+```bash
+docker compose --env-file .env.lite -p big-market-lite -f docker-compose.lite.yml down -v
+```
+
+`down -v` 会删除 MySQL、Redis、RabbitMQ 的 Lite 版数据卷，等于清空 Lite 环境数据。
+
+### 6. Lite 版注意事项
+
+Lite 版目标是让 4C4G 服务器稳定运行核心抽奖链路，不是完整后台管理版。
+
+当前 Lite 版不支持 ERP 管理端、Elasticsearch 订单查询、Canal 数据同步和 Grafana 监控看板。如果需要这些能力，请使用默认 `docker-compose.yml` 启动 full 版。
+
+Lite 版后端关闭了 `management.health.db.enabled`，避免因为不启动 Elasticsearch 导致 `/actuator/health` 返回 503。MySQL、Redis、RabbitMQ 等核心依赖仍由 Docker Compose 的健康检查保证。
+
+4C4G 环境可以用于功能演示和小规模压测，不适合做高并发极限压测。压测时建议逐步提高并发，并观察：
+
+```bash
+docker stats
+```
+
+重点关注 `backend`、`mysql`、`nacos`、`xxl-job-admin` 的内存占用。

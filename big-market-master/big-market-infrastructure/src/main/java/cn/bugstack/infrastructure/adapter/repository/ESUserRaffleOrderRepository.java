@@ -24,11 +24,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description
- * @create 2024-09-21 10:14
- */
 @Slf4j
 @Repository
 public class ESUserRaffleOrderRepository implements IESUserRaffleOrderRepository {

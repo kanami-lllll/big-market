@@ -31,11 +31,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 奖品仓储服务
- * @create 2024-04-06 10:09
- */
 @Slf4j
 @Component
 public class AwardRepository implements IAwardRepository {

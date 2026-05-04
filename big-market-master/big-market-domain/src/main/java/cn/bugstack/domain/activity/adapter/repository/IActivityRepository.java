@@ -9,11 +9,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 活动仓储接口
- * @create 2024-03-16 10:31
- */
 public interface IActivityRepository {
 
     ActivitySkuEntity queryActivitySku(Long sku);

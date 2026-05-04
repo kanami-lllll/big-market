@@ -4,11 +4,6 @@ import cn.bugstack.domain.activity.model.valobj.ActivitySkuStockKeyVO;
 
 import java.util.List;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖活动SKU库存服务
- * @create 2024-03-30 09:55
- */
 public interface IRaffleActivitySkuStockService {
 
     /**

@@ -9,11 +9,6 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 积分订单实体
- * @create 2024-06-01 09:08
- */
 @Data
 @Builder
 @AllArgsConstructor

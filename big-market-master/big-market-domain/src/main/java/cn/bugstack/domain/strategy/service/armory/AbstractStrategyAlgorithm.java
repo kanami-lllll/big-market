@@ -16,11 +16,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 抽奖策略算法抽象类
- * @create 2024-08-24 10:28
- */
 public abstract class AbstractStrategyAlgorithm implements IStrategyArmory, IStrategyDispatch {
 
     @Resource

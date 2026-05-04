@@ -7,11 +7,6 @@ import lombok.Getter;
 
 import java.util.Date;
 
-/**
- * @author Fuzhengwei bugstack.cn @小傅哥
- * @description 用户抽奖订单表值对象
- * @create 2024-09-21 10:11
- */
 @Getter
 @Builder
 public class ESUserRaffleOrderVO {
